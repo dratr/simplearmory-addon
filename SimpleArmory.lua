@@ -3,10 +3,21 @@
 local toJSON = newencoder(); -- initialize json encoder
 local _, SimpleArmory = ...
 
+SACopyFrameBackdropInfo =
+{
+    bgFile = "Interface\DialogFrame\UI-DialogBox-Background",
+    edgeFile = "Interface\Tooltips\UI-Tooltip-Border",
+    tile = "true",
+    insets = { left = 5, right = 5, top = 5, bottom = 5 },
+    tileSize = 16,
+    edgeSize = 16,
+}
+
 SimpleArmory = LibStub("AceAddon-3.0"):NewAddon(
     SimpleArmory, "SimpleArmory", "AceConsole-3.0",
     "AceEvent-3.0"
 )
+
 
 function SimpleArmory:OnInitialize()
     SimpleArmory:RegisterChatCommand('sa', 'ParseCommand')
