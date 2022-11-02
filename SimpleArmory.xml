@@ -1,12 +1,9 @@
 <Ui xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\FrameXML\UI.xsd">
   <GameTooltip name="SATooltip" frameStrata="TOOLTIP" hidden="true" parent="UIParent" inherits="GameTooltipTemplate"/>
-  <Frame name="SACopyFrame" parent="UIParent" movable="true" enableMouse="true" inherits="DialogBoxFrame,BackdropTemplate">
+  <Frame name="SACopyFrame" parent="UIParent" movable="true" enableMouse="true" inherits="DialogBoxFrame">
   <Size>
     <AbsDimension x="700" y="450"/>
   </Size>
-  <KeyValues>
-    <KeyValue key="backdropInfo" value="SACopyFrameBackdropInfo" type="global"/>    
-  </KeyValues>
   <Layers>
     <Layer level="ARTWORK">
       <FontString name="SAText" inherits="GameFontHighlight">
@@ -57,6 +54,17 @@
       --noinspection GlobalSelf
       self:StopMovingOrSizing()
   </OnMouseUp>
+  <OnLoad inherit="prepend">
+      self:SetBackdrop({
+          bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
+          edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+          tile = "true",
+          tileEdge = true,
+          insets = { left = 5, right = 5, top = 5, bottom = 5 },
+          tileSize = 16,
+          edgeSize = 16,
+      })
+  </OnLoad>
   </Scripts>
   </Frame>
 </Ui>
